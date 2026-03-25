@@ -1,0 +1,334 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.3">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en-US"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1">&lt;base href="https://rawcdn.githack.com/genizy/google-class/main/gdlite/" /&gt;</p>
+<p class="p1">&lt;title&gt;Geometry Dash&lt;/title&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;link rel="icon" type="image/png"</p>
+<p class="p1">href="https://e3334afd.cf-nate.pages.dev/0/g/geodash/game/splash.png"/&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;meta name="description"</p>
+<p class="p1">content="Play Geometry Dash Lite Online For Free on Chromebook, PC, Windows, Desktop in Chrome and modern browsers."/&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;link rel="canonical"</p>
+<p class="p1">href="https://gamecomets.com/game/geometry-dash-lite/"/&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;meta name="robots" content="noindex, nofollow"/&gt;</p>
+<p class="p1">&lt;meta charset="utf-8"/&gt;</p>
+<p class="p1">&lt;meta http-equiv="X-UA-Compatible" content="IE=edge"/&gt;</p>
+<p class="p1">&lt;meta name="viewport" content="width=device-width, initial-scale=1"/&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;link rel="stylesheet"</p>
+<p class="p1">href="themes/geometrydashlite.io/rs/css/home.css?v=1"/&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;style&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">html{box-sizing:border-box;}</p>
+<p class="p1">*,*:before,*:after{box-sizing:inherit;}</p>
+<p class="p2"><br></p>
+<p class="p1">body{</p>
+<p class="p1">margin:0;</p>
+<p class="p1">background-image:linear-gradient(rgb(0,0,0),rgb(0,102,255));</p>
+<p class="p1">overflow:hidden;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">#gameContainer{</p>
+<p class="p1">width:100vw;</p>
+<p class="p1">height:100vh;</p>
+<p class="p1">display:none;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">canvas{</p>
+<p class="p1">width:100%;</p>
+<p class="p1">height:100%;</p>
+<p class="p1">display:block;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">canvas+*{z-index:2;}</p>
+<p class="p2"><br></p>
+<p class="p1">.logo{</p>
+<p class="p1">position:absolute;</p>
+<p class="p1">display:block;</p>
+<p class="p1">max-width:100vw;</p>
+<p class="p1">max-height:70vh;</p>
+<p class="p1">top:300px;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">.pos_progress{</p>
+<p class="p1">position:absolute;</p>
+<p class="p1">bottom:15%;</p>
+<p class="p1">width:100%;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">.progress{</p>
+<p class="p1">margin:1.5em auto;</p>
+<p class="p1">max-width:436px;</p>
+<p class="p1">display:none;</p>
+<p class="p1">position:relative;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">.full{</p>
+<p class="p1">width:97%;</p>
+<p class="p1">transform-origin:top left;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">.box_process{width:100%;}</p>
+<p class="p2"><br></p>
+<p class="p1">.progress .posfull,</p>
+<p class="p1">.progress .posbox{</p>
+<p class="p1">position:absolute;</p>
+<p class="p1">display:flex;</p>
+<p class="p1">align-items:center;</p>
+<p class="p1">justify-content:center;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">.progress .posfull{</p>
+<p class="p1">top:8px;</p>
+<p class="p1">z-index:1;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">.progress .posbox{</p>
+<p class="p1">top:0;</p>
+<p class="p1">z-index:2;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">#loader{</p>
+<p class="p1">position:absolute;</p>
+<p class="p1">left:0;</p>
+<p class="p1">top:0;</p>
+<p class="p1">width:100%;</p>
+<p class="p1">height:100%;</p>
+<p class="p1">display:none;</p>
+<p class="p1">flex-direction:column;</p>
+<p class="p1">align-items:center;</p>
+<p class="p1">justify-content:center;</p>
+<p class="p1">background-image:linear-gradient(rgb(0,0,0),rgb(0,102,255));</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">.spinner,.spinner:after{</p>
+<p class="p1">display:none;</p>
+<p class="p1">border-radius:50%;</p>
+<p class="p1">width:5em;</p>
+<p class="p1">height:5em;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">.spinner{</p>
+<p class="p1">margin:10px;</p>
+<p class="p1">font-size:10px;</p>
+<p class="p1">position:relative;</p>
+<p class="p1">text-indent:-9999em;</p>
+<p class="p1">border-top:1.1em solid rgba(255,255,255,0.2);</p>
+<p class="p1">border-right:1.1em solid rgba(255,255,255,0.2);</p>
+<p class="p1">border-bottom:1.1em solid rgba(255,255,255,0.2);</p>
+<p class="p1">border-left:1.1em solid #ffffff;</p>
+<p class="p1">animation:spinner-spin 1.1s infinite linear;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">@keyframes spinner-spin{</p>
+<p class="p1">0%{transform:rotate(0deg);}</p>
+<p class="p1">100%{transform:rotate(360deg);}</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">/* LOGIN SCREEN */</p>
+<p class="p2"><br></p>
+<p class="p1">#codeScreen{</p>
+<p class="p1">position:fixed;</p>
+<p class="p1">top:0;</p>
+<p class="p1">left:0;</p>
+<p class="p1">width:100%;</p>
+<p class="p1">height:100%;</p>
+<p class="p1">background:black;</p>
+<p class="p1">display:flex;</p>
+<p class="p1">flex-direction:column;</p>
+<p class="p1">align-items:center;</p>
+<p class="p1">justify-content:center;</p>
+<p class="p1">color:white;</p>
+<p class="p1">font-family:sans-serif;</p>
+<p class="p1">z-index:9999;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">#codeScreen input{</p>
+<p class="p1">padding:10px;</p>
+<p class="p1">font-size:18px;</p>
+<p class="p1">border-radius:6px;</p>
+<p class="p1">border:none;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">#codeScreen button{</p>
+<p class="p1">margin-top:10px;</p>
+<p class="p1">padding:10px 20px;</p>
+<p class="p1">font-size:18px;</p>
+<p class="p1">cursor:pointer;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;!-- CODE SCREEN --&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;div id="codeScreen"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;h1&gt;Enter the password&lt;/h1&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;input id="codeInput" placeholder="password"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;button onclick="checkCode()"&gt;Play&lt;/button&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;p id="error" style="color:red"&gt;&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;div id="gameContainer"&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;div id="loader"&gt;</p>
+<p class="p1">&lt;img class="logo" src="image/loading.png?v=1"/&gt;</p>
+<p class="p1">&lt;div class="spinner"&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;div class="pos_progress"&gt;</p>
+<p class="p1">&lt;div class="progress"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;div class="posfull"&gt;</p>
+<p class="p1">&lt;img class="full" src="image/process_bar_back.png"/&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;div class="posbox"&gt;</p>
+<p class="p1">&lt;img class="box_process" src="image/process_bar_front.png"/&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;script src="Build/UnityLoader.js"&gt;&lt;/script&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;script&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">var gameInstance;</p>
+<p class="p2"><br></p>
+<p class="p1">/* START GAME AFTER CODE */</p>
+<p class="p2"><br></p>
+<p class="p1">function startGame(){</p>
+<p class="p2"><br></p>
+<p class="p1">document.getElementById("gameContainer").style.display="block";</p>
+<p class="p1">document.getElementById("loader").style.display="flex";</p>
+<p class="p2"><br></p>
+<p class="p1">gameInstance = UnityLoader.instantiate(</p>
+<p class="p1">"gameContainer",</p>
+<p class="p1">"Build/GeometryDashLite.json",</p>
+<p class="p1">{ onProgress: UnityProgress }</p>
+<p class="p1">);</p>
+<p class="p2"><br></p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">/* CODE CHECK */</p>
+<p class="p2"><br></p>
+<p class="p1">function checkCode(){</p>
+<p class="p2"><br></p>
+<p class="p1">let code=document.getElementById("codeInput").value;</p>
+<p class="p2"><br></p>
+<p class="p1">if(code==="TRO"){</p>
+<p class="p2"><br></p>
+<p class="p1">document.getElementById("codeScreen").style.display="none";</p>
+<p class="p2"><br></p>
+<p class="p1">startGame();</p>
+<p class="p2"><br></p>
+<p class="p1">}else{</p>
+<p class="p2"><br></p>
+<p class="p1">document.getElementById("error").innerText="password incorrect";</p>
+<p class="p2"><br></p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">/* UNITY LOADER */</p>
+<p class="p2"><br></p>
+<p class="p1">function UnityProgress(gameInstance,progress){</p>
+<p class="p2"><br></p>
+<p class="p1">if(!gameInstance.Module)return;</p>
+<p class="p2"><br></p>
+<p class="p1">const loader=document.querySelector("#loader");</p>
+<p class="p2"><br></p>
+<p class="p1">if(!gameInstance.progress){</p>
+<p class="p2"><br></p>
+<p class="p1">const progressEl=document.querySelector("#loader .progress");</p>
+<p class="p2"><br></p>
+<p class="p1">progressEl.style.display="block";</p>
+<p class="p2"><br></p>
+<p class="p1">gameInstance.progress=progressEl.querySelector(".full");</p>
+<p class="p2"><br></p>
+<p class="p1">loader.querySelector(".spinner").style.display="none";</p>
+<p class="p2"><br></p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">gameInstance.progress.style.transform=`scaleX(${progress})`;</p>
+<p class="p2"><br></p>
+<p class="p1">if(progress===1&amp;&amp;!gameInstance.removeTimeout){</p>
+<p class="p2"><br></p>
+<p class="p1">gameInstance.removeTimeout=setTimeout(()=&gt;loader.style.display="none",2000);</p>
+<p class="p2"><br></p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">/* JUMP CONTROLS */</p>
+<p class="p2"><br></p>
+<p class="p1">document.addEventListener("keydown",function(e){</p>
+<p class="p2"><br></p>
+<p class="p1">if(e.code==="Space"||e.code==="ArrowUp"){</p>
+<p class="p2"><br></p>
+<p class="p1">e.preventDefault();</p>
+<p class="p2"><br></p>
+<p class="p1">const canvas=document.querySelector("#gameContainer canvas");</p>
+<p class="p2"><br></p>
+<p class="p1">if(canvas){</p>
+<p class="p2"><br></p>
+<p class="p1">const rect=canvas.getBoundingClientRect();</p>
+<p class="p2"><br></p>
+<p class="p1">const clickEvent=new MouseEvent("mousedown",{</p>
+<p class="p1">bubbles:true,</p>
+<p class="p1">cancelable:true,</p>
+<p class="p1">clientX:rect.left+rect.width/2,</p>
+<p class="p1">clientY:rect.top+rect.height/2</p>
+<p class="p1">});</p>
+<p class="p2"><br></p>
+<p class="p1">canvas.dispatchEvent(clickEvent);</p>
+<p class="p2"><br></p>
+<p class="p1">const upEvent=new MouseEvent("mouseup",{</p>
+<p class="p1">bubbles:true,</p>
+<p class="p1">cancelable:true,</p>
+<p class="p1">clientX:rect.left+rect.width/2,</p>
+<p class="p1">clientY:rect.top+rect.height/2</p>
+<p class="p1">});</p>
+<p class="p2"><br></p>
+<p class="p1">setTimeout(()=&gt;canvas.dispatchEvent(upEvent),50);</p>
+<p class="p2"><br></p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">});</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/script&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;script src="themes/geometrydashlite.io/rs/js/jquery-3.4.1.min.js"&gt;&lt;/script&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
